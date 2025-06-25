@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cine en Casa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <a href="#" id="home-link"><h1>Cine Plagio</h1></a>
+  <div class="auth-buttons" id="auth-buttons">
+    <button id="login-btn">Iniciar sesión <i class="bi bi-arrow-bar-right"></i> </button>
+    <button id="signup-btn">Crear cuenta <i class="bi bi-badge-cc"></i></button>
+  </div>
+  <div id="user-info" class="hidden">
+    <span id="username-display"></span>
+    <button id="logout-btn" class="btn-secondary">
+  <i class="bi bi-arrow-bar-left"></i> Cerrar sesión
+</button>
+  </div>
+</header>
+
+<main>
+  <section id="movies" class="container">
+    <h2>Películas en Cartelera</h2>
+    <div class="movie-card-container" id="movie-list"></div>
+  </section>
+
+  <section id="select-time" class="container hidden">
+    <h2>Seleccionar Horario para <span id="movie-name"></span></h2>
+    <img id="movie-img" alt="Imagen película" />
+    <p id="movie-desc"></p>
+    <button id="trailer-btn" class="btn-primary">Ver Trailer</button>
+    <div class="time-buttons">
+      <button class="btn-time">11:00 AM</button>
+      <button class="btn-time">02:00 PM</button>
+      <button class="btn-time">05:00 PM</button>
+      <button class="btn-time">08:00 PM</button>
+    </div>
+  </section>
+
+  <section id="seat-selection" class="container hidden">
+    <h2>Seleccionar Asientos</h2>
+    <div class="screen">Pantalla</div>
+    <div class="seats-container" id="seats-container"></div>
+    <button id="accept-seats-btn" class="btn-primary" disabled>Aceptar</button>
+  </section>
+
+<section id="food-selection" class="container hidden">
+  <h2>Selecciona tus Snacks y Bebidas</h2>
+  <div class="food-options">
+    <div>
+      <label><strong>Palomitas:</strong></label><br/>
+      <label><input type="radio" name="popcorn-size" data-price="2000" data-name="Palomitas Pequeñas" /> Pequeñas ($2000)</label>
+      <label><input type="radio" name="popcorn-size" data-price="3500" data-name="Palomitas Medianas" /> Medianas ($3500)</label>
+      <label><input type="radio" name="popcorn-size" data-price="5000" data-name="Palomitas Grandes" /> Grandes ($5000)</label>
+      <br/>
+      Cantidad: <input type="number" id="popcorn-qty" min="0" value="0" style="width: 60px;" />
+    </div>
+
+    <div style="margin-top: 1rem;">
+      <label><strong>Gaseosa:</strong></label><br/>
+      <label><input type="radio" name="soda-size" data-price="1500" data-name="Gaseosa Pequeña" /> Pequeña ($1500)</label>
+      <label><input type="radio" name="soda-size" data-price="2500" data-name="Gaseosa Mediana" /> Mediana ($2500)</label>
+      <label><input type="radio" name="soda-size" data-price="3500" data-name="Gaseosa Grande" /> Grande ($3500)</label>
+      <br/>
+      Cantidad: <input type="number" id="soda-qty" min="0" value="0" style="width: 60px;" />
+    </div>
+
+    <div style="margin-top: 1rem;">
+      <label><strong>Golosinas:</strong></label><br/>
+      <label><input type="checkbox" id="candies-checkbox" data-price="2000" data-name="Dulces" /> Dulces ($2000)</label>
+      <br/>
+      Cantidad: <input type="number" id="candies-qty" min="0" value="0" style="width: 60px;" />
+    </div>
+
+    <!-- Puedes añadir más golosinas similares aquí -->
+
+  </div>
+  <button id="to-payment-btn" class="btn-primary">Continuar al Pago</button>
+  <button id="back-to-seats-btn" class="btn-secondary" style="margin-top: 1rem;">Volver a Asientos</button>
+  <button id="to-cart-btn" class="btn-primary" style="margin-left: 1rem; margin-top: 1rem;">Continuar al Carrito</button>
+</section>
+
+
+  <section id="payment" class="container hidden">
+    <h2>Realizar Pago</h2>
+    <button id="pay-online-btn" class="btn-primary">Pagar en Línea</button>
+    <button id="pay-voucher-btn" class="btn-secondary">Sacar Vale para Pagar en Caja</button>
+  </section>
+
+  <section id="cart" class="container hidden">
+    <h3>Carrito de Compras</h3>
+    <div id="cart-details"></div>
+    <h4>Total: $<span id="cart-total">0</span></h4>
+  </section>
+  
+  <section id="cart-confirmation" class="container hidden">
+    <h2>Resumen del Carrito</h2>
+    <div id="cart-details-confirm"></div>
+    <h3>Total a Pagar: $<span id="cart-total-confirm">0</span></h3>
+    <button id="confirm-purchase-btn" class="btn-primary">Confirmar Compra</button>
+    <button id="back-to-food-btn" class="btn-secondary">Volver a Comida</button>
+  </section>
+</main>
+
+<!-- Modal Login -->
+<div id="modal-login" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="login-title" tabindex="-1">
+  <form id="login-form" class="modal-content" novalidate>
+    <h2 id="login-title">Iniciar Sesión</h2>
+    <input type="text" id="login-username" placeholder="Usuario" required autocomplete="username" />
+    <input type="password" id="login-password" placeholder="Contraseña" required autocomplete="current-password" />
+    <div class="modal-actions">
+      <button type="submit" class="btn-primary">Iniciar Sesión</button>
+      <button type="button" id="login-close-btn" class="btn-secondary" aria-label="Cerrar modal">Cerrar ×</button>
+    </div>
+    <p>¿No tienes cuenta? <a href="#" id="to-signup-link">Crear cuenta</a></p>
+    <p id="login-error" class="error-msg"></p>
+  </form>
+</div>
+
+<!-- Modal Signup -->
+<div id="modal-signup" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="signup-title" tabindex="-1">
+  <form id="signup-form" class="modal-content" novalidate>
+    <h2 id="signup-title">Crear Cuenta</h2>
+    <input type="text" id="signup-username" placeholder="Usuario" required autocomplete="username" />
+    <input type="email" id="signup-email" placeholder="Correo electrónico" required autocomplete="email" />
+    <input type="password" id="signup-password" placeholder="Contraseña" required autocomplete="new-password" />
+    <input type="password" id="signup-confirm-password" placeholder="Confirmar Contraseña" required autocomplete="new-password" />
+    <div class="modal-actions">
+      <button type="submit" class="btn-primary">Crear Cuenta</button>
+      <button type="button" id="signup-close-btn" class="btn-secondary" aria-label="Cerrar modal">Cerrar ×</button>
+    </div>
+    <p>¿Ya tienes cuenta? <a href="#" id="to-login-link">Iniciar sesión</a></p>
+    <p id="signup-error" class="error-msg"></p>
+  </form>
+</div>
+
+<!-- Botón ayuda -->
+<button id="help-btn" class="btn-help">Ayuda</button>
+
+<!-- Formulario ayuda -->
+<div id="help-form" class="help-form hidden">
+  <h3>Ayuda y Sugerencias</h3>
+  <form id="help-contact-form">
+    <input type="text" id="help-name" placeholder="Nombre" required />
+    <input type="email" id="help-email" placeholder="Correo electrónico" required />
+    <textarea id="help-message" placeholder="Escribe tu sugerencia o reclamo" required></textarea>
+    <button type="submit" class="btn-primary">Enviar</button>
+  </form>
+  <p id="help-success" class="success-msg hidden">¡Tu mensaje fue enviado exitosamente!</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

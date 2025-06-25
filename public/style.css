@@ -1,0 +1,306 @@
+/* Reset y base */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #272727;
+    color: #fff;
+  }
+  
+  header {
+    background: #000;
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .auth-buttons, #user-info {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .auth-buttons button, #user-info button {
+    background: #7d0000;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* user-info oculto inicialmente */
+  #user-info.hidden {
+    display: none;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .movie-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .movie-card {
+    background: #800020;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 280px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+  
+  .movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .btn-primary {
+    background: #800020;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0.5rem 0;
+  }
+  
+  .btn-secondary {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0.5rem 0;
+  }
+  
+  .time-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .btn-time {
+    background: #7d0000;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Secciones ocultas */
+  .hidden {
+    display: none;
+  }
+  
+  /* Selección de asientos */
+  .screen {
+    background: #222;
+    color: #eee;
+    text-align: center;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .seats-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto 1rem auto;
+  }
+  
+  .seat {
+    background: #444;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+  }
+  
+  .seat.selected {
+    background: #ff8c00;
+  }
+  
+  .seat.booked {
+    background: #8b0000;
+    cursor: not-allowed;
+  }
+  
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: #444;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.9);
+  }
+  
+  /* Botón cerrar modal */
+  .modal-actions button.btn-secondary {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    user-select: none;
+  }
+  
+  /* Carrito */
+  #cart {
+    background: #333;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+  
+  .cart-item {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Ayuda */
+  #help-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: #7d0000;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 3000;
+  }
+  
+  #help-form {
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem;
+    background: #444;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    color: white;
+    display: none;
+    z-index: 3001;
+  }
+  
+  #help-form input,
+  #help-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  #help-form textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  #help-form button {
+    background: #800020;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+/* El resto de estilos queda igual */
+
+/* Nueva sección carrito confirmación */
+#cart-confirmation {
+    background: #333;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+  
+  #cart-confirmation .cart-item {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Botones confirmación y volver */
+  #confirm-purchase-btn {
+    margin-right: 1rem;
+  }
+  #cart-confirmation {
+    background: #333;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+  
+  #cart-confirmation .cart-item {
+    margin-bottom: 0.5rem;
+  }
+
+#select-time img#movie-img {
+  width: 320px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+#to-payment-btn {
+  display: none;
+}
