@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/CinePlagio/static/css/main.f855e6bc.css",
-    "main.js": "/CinePlagio/static/js/main.9eadb231.js",
-    "static/js/453.a130b29a.chunk.js": "/CinePlagio/static/js/453.a130b29a.chunk.js",
-    "static/media/logo.svg": "/CinePlagio/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/CinePlagio/index.html",
-    "main.f855e6bc.css.map": "/CinePlagio/static/css/main.f855e6bc.css.map",
-    "main.9eadb231.js.map": "/CinePlagio/static/js/main.9eadb231.js.map",
-    "453.a130b29a.chunk.js.map": "/CinePlagio/static/js/453.a130b29a.chunk.js.map"
+    "main.css": "/CinePlagio2/static/css/main.f855e6bc.css",
+    "main.js": "/CinePlagio2/static/js/main.ba509d8c.js",
+    "static/js/453.a130b29a.chunk.js": "/CinePlagio2/static/js/453.a130b29a.chunk.js",
+    "static/media/logo.svg": "/CinePlagio2/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/CinePlagio2/index.html",
+    "main.f855e6bc.css.map": "/CinePlagio2/static/css/main.f855e6bc.css.map",
+    "main.ba509d8c.js.map": "/CinePlagio2/static/js/main.ba509d8c.js.map",
+    "453.a130b29a.chunk.js.map": "/CinePlagio2/static/js/453.a130b29a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.9eadb231.js"
+    "static/js/main.ba509d8c.js"
   ]
 }
